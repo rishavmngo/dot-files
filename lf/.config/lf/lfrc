@@ -1,0 +1,74 @@
+set ratios 1:2:3
+set cleaner ~/.config/lf/cleaner
+set previewer ~/.config/lf/preview
+set hidden true
+set ignorecase true
+set icons true
+set mouse on
+cmd mkdir ${{
+  printf "Directory Name: "
+  read ans
+  mkdir $ans
+}}
+cmd makd ${{
+  printf "path: "
+  read ans
+  dirf $ans 
+}}
+
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  $EDITOR $ans
+}}
+
+cmd deleteNestedFolder 
+
+cmd setwallpaper %cp "$f" ~/.config/wall.jpg && xwallpaper --zoom "$f"
+
+# Archive bindings
+cmd unarchive ${{
+  case "$f" in
+      *.zip) unzip "$f" ;;
+      *.tar.gz) tar -xzvf "$f" ;;
+      *.tar.bz2) tar -xjvf "$f" ;;
+      *.tar) tar -xvf "$f" ;;
+      *) echo "Unsupported format" ;;
+  esac
+}}
+
+cmd remove ${{
+    if [ -z $fs ]; then
+        rm -fr $f
+    else
+        IFS=':'; echo $fs | tr " " "\n"
+        echo 'delete? [y/n]'
+        read ans
+
+        [ $ans = 'y' ] && (echo 'deleting files...' && rm -fr $fs) || (echo 'cancelled...')
+    fi
+}}
+set previewer ~/.config/lf/preview
+set cleaner ~/.config/lf/cleaner
+
+map au unarchive
+map d
+map dd delete
+map dx cut
+map dc copy
+map dD push :remove
+map gd cd ~/Downloads
+map gh cd ~
+map gc makd 
+map gf cd ~/Documents
+map gw cd ~/Documents/My_work
+map gp cd  /run/media/rishav/ 
+map gk mkdir 
+cmd z-jump ${{
+  # ZLUA_SCRIPT="/path/to/z.lua"  # Usually unnecessary
+  lf -remote "send ${id} cd '$($ZLUA_SCRIPT -e $@)'"
+}}
+map Z push :z-jump<space>-I<space>
+map zb push :z-jump<space>-b<space>
+map zz push :z-jump<space>
+map f $vi $(fzf)
