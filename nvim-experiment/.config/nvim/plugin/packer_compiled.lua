@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "/home/rishav/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
   },
+  ["lf.vim"] = {
+    loaded = true,
+    path = "/home/rishav/.local/share/nvim/site/pack/packer/start/lf.vim",
+    url = "https://github.com/ptzz/lf.vim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/rishav/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -183,6 +188,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rishav/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["vim-floaterm"] = {
+    loaded = true,
+    path = "/home/rishav/.local/share/nvim/site/pack/packer/start/vim-floaterm",
+    url = "https://github.com/voldikss/vim-floaterm"
   },
   ["vim-illuminate"] = {
     loaded = true,
