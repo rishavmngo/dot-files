@@ -2,7 +2,8 @@ local servers = {
 	"sumneko_lua",
 	"pyright",
 	"jsonls",
-	"tsserver"
+	"tsserver",
+	"clangd",
 }
 
 local settings = {
@@ -29,7 +30,6 @@ if not lspconfig_status_ok then
 end
 
 local opts = {}
-
 
 for _, server in pairs(servers) do
 	opts = {

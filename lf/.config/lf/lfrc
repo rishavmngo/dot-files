@@ -3,6 +3,7 @@ set cleaner ~/.config/lf/cleaner
 set previewer ~/.config/lf/preview
 set hidden true
 set ignorecase true
+set drawbox 
 set icons true
 set mouse on
 cmd mkdir ${{

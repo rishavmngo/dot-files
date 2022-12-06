@@ -80,6 +80,8 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("RRethy/vim-illuminate")
 
+	use("windwp/nvim-autopairs")
+
 	-- Lf Integration
 	use("ptzz/lf.vim")
 	use("voldikss/vim-floaterm")
