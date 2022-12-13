@@ -71,6 +71,7 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
+vim.keymap.set("n", "go", "<C-T>")
 
 M.on_attach = function(client, bufnr)
 	if client.name == "tsserver" then
@@ -81,6 +82,9 @@ M.on_attach = function(client, bufnr)
 		client.server_capabilities.documentFormattingProvider = false
 	end
 
+	if client.name == "jsonls" then
+		client.server_capabilities.documentFormattingProvider = false
+	end
 	lsp_keymaps(bufnr)
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then

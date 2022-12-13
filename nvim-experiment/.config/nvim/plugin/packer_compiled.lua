@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/rishav/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/home/rishav/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/rishav/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -129,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/rishav/.local/share/nvim/site/pack/packer/start/lf.vim",
     url = "https://github.com/ptzz/lf.vim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/rishav/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/rishav/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -164,10 +174,25 @@ _G.packer_plugins = {
     path = "/home/rishav/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-ts-autotag"] = {
+    loaded = true,
+    path = "/home/rishav/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
+  },
   ["nvim-ts-context-commentstring"] = {
     loaded = true,
     path = "/home/rishav/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
     url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
+  },
+  ["nyoom.nvim"] = {
+    loaded = true,
+    path = "/home/rishav/.local/share/nvim/site/pack/packer/start/nyoom.nvim",
+    url = "https://github.com/nyoom-engineering/nyoom.nvim"
+  },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "/home/rishav/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+    url = "https://github.com/ful1e5/onedark.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,

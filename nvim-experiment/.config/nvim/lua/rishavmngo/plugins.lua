@@ -44,7 +44,11 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
+
+	-- colorscheme
 	use("morhetz/gruvbox")
+	use("nyoom-engineering/nyoom.nvim")
+	use("ful1e5/onedark.nvim")
 
 	-- Telescope
 	use("nvim-telescope/telescope-file-browser.nvim")
@@ -80,11 +84,17 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("RRethy/vim-illuminate")
 
-	use("windwp/nvim-autopairs")
-
 	-- Lf Integration
 	use("ptzz/lf.vim")
 	use("voldikss/vim-floaterm")
+
+	-- autoTag and autopairs
+	use("windwp/nvim-autopairs")
+	use("windwp/nvim-ts-autotag")
+
+	-- bufferline
+	use("akinsho/bufferline.nvim")
+	use("nvim-lualine/lualine.nvim")
 
 	--[[ Automatically set up your configuration after cloning packer.nvim ]]
 	-- Put this at the end after all plugins
