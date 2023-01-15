@@ -20,6 +20,6 @@ vim.opt.clipboard:append({ "unnamedplus" })
 vim.opt.cursorline = true
 vim.cmd("colorscheme onedark")
 
-vim.cmd([[let g:lf_map_keys = 0]])
-
-vim.cmd([[  let g:lf_replace_netrw = 1]])
+-- vim.cmd([[let g:lf_map_keys = 0]])
+--
+-- vim.cmd([[  let g:lf_replace_netrw = 1]])

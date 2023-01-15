@@ -5,7 +5,7 @@ local servers = {
 	"tsserver",
 	"clangd",
 	"emmet_ls",
-	"cssls"
+	"cssls",
 }
 
 local settings = {
@@ -22,7 +22,7 @@ local settings = {
 }
 require("mason").setup(settings)
 require("mason-lspconfig").setup({
-	 -- ensure_installed = servers,
+	-- ensure_installed = servers,
 	automatic_installation = false,
 })
 

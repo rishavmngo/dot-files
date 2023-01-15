@@ -63,7 +63,7 @@ map gh cd ~
 map gc makd 
 map gf cd ~/Documents
 map gw cd ~/Documents/My_work
-map gp cd  /run/media/rishav/ 
+map gp cd  /run/media/rishavmngo/ 
 map gk mkdir 
 cmd z-jump ${{
   # ZLUA_SCRIPT="/path/to/z.lua"  # Usually unnecessary

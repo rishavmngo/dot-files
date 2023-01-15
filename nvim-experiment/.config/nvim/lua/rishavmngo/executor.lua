@@ -16,7 +16,7 @@ end
 
 local executor_map = {
 	cpp = [[!g++ % && ./a.out < input]],
-	c = [[!gcc % && ./a.out < input]],
+	c = [[!gcc -lm % && ./a.out < input]],
 	javascript = [[!node %]],
 	python = [[!python %]],
 	go = [[!go run %]],

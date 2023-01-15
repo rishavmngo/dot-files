@@ -5,57 +5,57 @@ items:
       name: 3024 (dark)
       author: Chris Kempson
       primary:
-        background: "#111111"
-        foreground: "#a5a2a2"
+        background: '#111111'
+        foreground: '#a5a2a2'
       cursor:
-        text: "#090300"
-        cursor: "#a5a2a2"
+        text: '#090300'
+        cursor: '#a5a2a2'
       normal:
-        black: "#090300"
-        red: "#db2d20"
-        green: "#01a252"
-        yellow: "#fded02"
-        blue: "#01a0e4"
-        magenta: "#a16a94"
-        cyan: "#b5e4f4"
-        white: "#a5a2a2"
+        black: '#090300'
+        red: '#db2d20'
+        green: '#01a252'
+        yellow: '#fded02'
+        blue: '#01a0e4'
+        magenta: '#a16a94'
+        cyan: '#b5e4f4'
+        white: '#a5a2a2'
       bright:
-        black: "#5c5855"
-        red: "#db2d20"
-        green: "#01a252"
-        yellow: "#fded02"
-        blue: "#01a0e4"
-        magenta: "#a16a94"
-        cyan: "#b5e4f4"
-        white: "#f7f7f7"
+        black: '#5c5855'
+        red: '#db2d20'
+        green: '#01a252'
+        yellow: '#fded02'
+        blue: '#01a0e4'
+        magenta: '#a16a94'
+        cyan: '#b5e4f4'
+        white: '#f7f7f7'
   - theme: 3024.dark
 colors:
   # Default colors
   primary:
-    background: "0x282a36"
-    foreground: "0xf8f8f2"
+    background: '0x282a36'
+    foreground: '0xf8f8f2'
 
   # Normal colors
   normal:
-    black: "0x000000"
-    red: "0xff5555"
-    green: "0x50fa7b"
-    yellow: "0xf1fa8c"
-    blue: "0xbd93f9"
-    magenta: "0xff79c6"
-    cyan: "0x8be9fd"
-    white: "0xbbbbbb"
+    black: '0x000000'
+    red: '0xff5555'
+    green: '0x50fa7b'
+    yellow: '0xf1fa8c'
+    blue: '0xbd93f9'
+    magenta: '0xff79c6'
+    cyan: '0x8be9fd'
+    white: '0xbbbbbb'
 
   # Bright colors
   bright:
-    black: "0x555555"
-    red: "0xff5555"
-    green: "0x50fa7b"
-    yellow: "0xf1fa8c"
-    blue: "0xcaa9fa"
-    magenta: "0xff79c6"
-    cyan: "0x8be9fd"
-    white: "0xffffff"
+    black: '0x555555'
+    red: '0xff5555'
+    green: '0x50fa7b'
+    yellow: '0xf1fa8c'
+    blue: '0xcaa9fa'
+    magenta: '0xff79c6'
+    cyan: '0x8be9fd'
+    white: '0xffffff'
 theme: dracula
 
 # colors:
@@ -148,8 +148,8 @@ dynamic_padding: true
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-# window:
-# opacity: 1
+window:
+  opacity: 0.8
 # Startup Mode (changes require restart)
 #
 
@@ -191,10 +191,11 @@ font:
   # Normal (roman) font face
   normal:
     #family: JetBrains Mono
-    family: JetBrainsMono Nerd Font Mono
-      #family: Symbols Nerd Font 
+    family:
+      JetBrainsMono Nerd Font Mono
+      #family: Symbols Nerd Font
       # The `style` can be specified to pick a specific face.
-    #style: 
+    #style:
 # Bold font face
 # bold:
 # Font family
@@ -228,14 +229,14 @@ font:
 # of as modifying the line spacing, and `offset.x` as modifying the letter
 # spacing.
 #offset:
-  #  x: 10
-  #y: 10
+#  x: 10
+#y: 10
 # Glyph offset determines the locations of the glyphs within their cells with
 # the default being at the bottom. Increasing `x` moves the glyph to the
 # right, increasing `y` moves the glyph upward.
 #glyph_offset:
-  #   x: 32 
-#   y: 34 
+#   x: 32
+#   y: 34
 # Thin stroke font rendering (macOS only)
 #
 # Thin strokes are suitable for retina displays, but for non-retina screens

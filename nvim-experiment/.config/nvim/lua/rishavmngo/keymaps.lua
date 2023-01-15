@@ -15,3 +15,14 @@ vim.keymap.set("n", "sd", "<cmd>bd<cr>")
 vim.keymap.set("n", "sk", "<C-w>k")
 vim.keymap.set("n", "<s-l>", "<cmd>BufferLineCycleNext<cr>")
 vim.keymap.set("n", "<s-h>", "<cmd>BufferLineCyclePrev<cr>")
+
+vim.g.floaterm_width = 0.95
+vim.g.floaterm_height = 0.95
+vim.keymap.set("n", "<leader>g", ":FloatermNew lazygit<CR>")
+vim.keymap.set("n", "<leader>f", ":FloatermNew lfrun<CR>")
+vim.cmd([[
+augroup goodbye_netrw
+  au!
+  autocmd VimEnter * silent! au! FileExplorer *
+augroup END
+]])

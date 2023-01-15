@@ -534,6 +534,7 @@ beautiful.useless_gap = 5
 
 awful.spawn.with_shell("nitrogen --restore")
 
+awful.spawn.with_shell("xmodmap ~/.Xmodmaprc")
 -- awful.spawn.with_shell('/usr/bin/emacs --daemon')
 
 -- set natural scrolling for touchpad
@@ -541,10 +542,16 @@ awful.spawn.with_shell("xinput set-prop 'ELAN1301:00 04F3:30C6 Touchpad' 'libinp
 
 -- enable tapping for touchpad
 awful.spawn.with_shell("xinput set-prop 'ELAN1301:00 04F3:30C6 Touchpad' 'libinput Tapping Enabled' 1")
-awful.spawn.with_shell("picom  --fade-in-step=1 --fade-out-step=1 --fade-delta=0")
+awful.spawn.with_shell("picom --config $HOME/.config/picom/picom.conf")
 
-awful.spawn.with_shell("/home/rishav/.config/polybar/launch.sh")
+awful.spawn.with_shell("$HOME/.config/polybar/launch.sh --grayblocks")
 -- awful.spawn.with_shell("/home/rishavmngo/battery.sh")
+-- radius
+client.connect_signal("manage", function(c)
+	c.shape = function(cr, w, h)
+		gears.shape.rounded_rect(cr, w, h, 5)
+	end
+end)
 
 local ok_status, battery = pcall(require, "battery-widget")
 
