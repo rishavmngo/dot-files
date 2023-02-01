@@ -96,8 +96,14 @@ myawesomemenu = {
 	},
 }
 
-mymainmenu =
-	awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon }, { "open terminal", terminal } } })
+mymainmenu = awful.menu({
+	items = {
+		{ "awesome", myawesomemenu, beautiful.awesome_icon },
+		{ "Terminal", "alacritty" },
+		{ "Document viewer", "evince" },
+		{ "File Manager", "dolphin" },
+	},
+})
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
@@ -545,6 +551,7 @@ awful.spawn.with_shell("xinput set-prop 'ELAN1301:00 04F3:30C6 Touchpad' 'libinp
 awful.spawn.with_shell("picom --config $HOME/.config/picom/picom.conf")
 
 awful.spawn.with_shell("$HOME/.config/polybar/launch.sh --grayblocks")
+awful.spawn.with_shell("layout")
 -- awful.spawn.with_shell("/home/rishavmngo/battery.sh")
 -- radius
 client.connect_signal("manage", function(c)

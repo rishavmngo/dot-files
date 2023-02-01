@@ -1,0 +1,46 @@
+(defpoll current-brightness :interval "1s" "brightnessctl -m -d amdgpu_bl0 | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
+
+
+
+(defwidget mainLayout []
+  (box :orientation "v" :class "main_layout" :valign "fill"
+    (box :class "top_layout" :valign "start" 
+      (box :class "top_layout_left" :halign "start" (box :class "layout_left_btn" (label :class "battery_icon" :text "")(label :text "56%")))
+      (box :class "top_layout_right" :halign "end"(button :class "layout_right_btn" "") (button :class "layout_right_btn" "") (button :class "layout_right_btn" "")))
+    (scale :value current-brightness)
+    (box :orientation "v":class "bottom_layout" :valign "end"
+      (box :class "bottom_layout_first" 
+        (button :class "bottom_layout_option" 
+          "      Office"
+          )
+        (button :class "bottom_layout_option" 
+          "      Bluetooth")
+        )
+      (box :class "bottom_layout_second" 
+        (button :class "bottom_layout_option" 
+          "      Notes"
+          )
+        (button :class "bottom_layout_option" 
+          "      Night Light")
+        )
+      (box :class "bottom_layout_third"
+        (button  :class "bottom_layout_option" 
+          "      Dark Mode")
+        (button :class "bottom_layout_option" 
+          "      Airplane Mode")
+        )
+      )))
+
+
+(defwindow example
+  :monitor 0
+  :geometry (geometry :x "-10px"
+  :y "5%"
+  :width "20%"
+  :height "35%"
+  :anchor "top right")
+  :stacking "fg"
+  :reserve (struts :distance "1px" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+  (mainLayout))

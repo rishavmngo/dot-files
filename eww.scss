@@ -1,0 +1,75 @@
+// #282828 dark black
+// #404040 light black
+// #438eeb even lighter black
+// #3583e3 blue
+// #438eeb  dark blue
+* {
+  color: white;
+}
+button {
+  all: unset;
+  border-radius: 17px;
+  color: white;
+  background: #404040;
+  margin: 0px 4px;
+  outline: none;
+  border: none;
+}
+
+.layout_left_btn {
+  border-radius: 17px;
+  color: white;
+  background: #404040;
+  padding: 5px 10px;
+}
+.layout_right_btn {
+  border-radius: 50px;
+  padding: 8px 20px;
+  font-size: 18px;
+}
+
+.main_layout {
+  background: #282828;
+  padding: 15px;
+}
+.battery_icon {
+  color: green;
+  font-size: 19px;
+}
+.top_layout {
+  // background: red;
+}
+.bottom_layout {
+  // background: purple;
+}
+
+.bottom_layout_option {
+  all: unset;
+  background-color: #404040;
+  margin: 5px 2px;
+  padding: 10px 0px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+button:active {
+  background: #3583e3;
+}
+
+.middle_layout {
+}
+scale trough {
+  all: unset;
+  background-color: #3583e3;
+  border-radius: 5px;
+  min-height: 10px;
+  // margin: 0.3rem 0 0.3rem 0;
+}
+.brightness-icons {
+  color: white;
+}
+.bribar {
+  // background: green;
+}
+.bribar trough {
+  background-color: gray;
+}

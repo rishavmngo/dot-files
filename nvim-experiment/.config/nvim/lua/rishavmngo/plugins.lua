@@ -99,7 +99,11 @@ return packer.startup(function(use)
 	-- helper for yuck(eww)
 	use("elkowar/yuck.vim")
 
+	--Indentation guide
+	use("lukas-reineke/indent-blankline.nvim")
+	--animation
 	use("eandrju/cellular-automaton.nvim")
+
 	--[[ Automatically set up your configuration after cloning packer.nvim ]]
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
