@@ -1,0 +1,15 @@
+[user]
+	email = rishavinmngo@gmail.com
+	name = rishavmngo
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[delta]
+    navigate = true    
+    light = false      
+    side-by-side = true  
+    line-numbers = true   
+    features = decorations
