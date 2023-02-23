@@ -63,7 +63,7 @@ telescope.setup({
 	},
 })
 
-vim.keymap.set("n", "s.", function()
+vim.keymap.set("n", ";.", function()
 	builtin.oldfiles()
 end)
 

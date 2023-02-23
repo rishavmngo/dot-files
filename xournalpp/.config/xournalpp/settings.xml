@@ -6,16 +6,16 @@
   <property name="pressureMultiplier" value="1"/>
   <property name="zoomGesturesEnabled" value="true"/>
   <property name="selectedToolbar" value="Perfect"/>
-  <property name="lastSavePath" value="/home/rishavmngo/.config/xournalpp"/>
+  <property name="lastSavePath" value="/home/rishavmngo/Documents/Notes"/>
   <property name="lastOpenPath" value="/home/rishavmngo/Documents/Notes"/>
-  <property name="lastImagePath" value="/home/rishavmngo/Downloads"/>
+  <property name="lastImagePath" value="/home/rishavmngo/Pictures/Screen Shots"/>
   <property name="edgePanSpeed" value="20"/>
   <property name="edgePanMaxMult" value="5"/>
   <property name="zoomStep" value="10"/>
   <property name="zoomStepScroll" value="2"/>
   <property name="displayDpi" value="72"/>
   <property name="mainWndWidth" value="1900"/>
-  <property name="mainWndHeight" value="1060"/>
+  <property name="mainWndHeight" value="1016"/>
   <property name="maximized" value="false"/>
   <property name="showToolbar" value="true"/>
   <property name="showSidebar" value="false"/>
@@ -149,7 +149,7 @@
       <attribute name="tool" type="string" value="eraser"/>
     </data>
     <data name="stylus2">
-      <attribute name="tool" type="string" value="selectRegion"/>
+      <attribute name="tool" type="string" value="selectRect"/>
     </data>
     <data name="touch">
       <attribute name="device" type="string" value=""/>
@@ -250,7 +250,7 @@
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="fcffe7"/>
+      <attribute name="color" type="hex" value="ffdeddda"/>
       <attribute name="drawingType" type="string" value="default"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="127"/>

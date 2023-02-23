@@ -1,5 +1,5 @@
 local servers = {
-	"sumneko_lua",
+	"lua_ls",
 	"pyright",
 	"jsonls",
 	"tsserver",
@@ -7,6 +7,7 @@ local servers = {
 	"emmet_ls",
 	"cssls",
 	"gopls",
+	"rust_analyzer",
 }
 
 local settings = {
