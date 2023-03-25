@@ -1,3 +1,4 @@
+vim.opt.timeoutlen = 300
 vim.opt.rnu = true
 vim.opt.mouse = "a"
 vim.opt.ru = true

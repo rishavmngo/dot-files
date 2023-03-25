@@ -16,6 +16,11 @@ cmd makd ${{
   read ans
   dirf $ans 
 }}
+cmd dirf ${{
+  printf "paths: "
+	read ans
+	dirf $ans
+	}}
 
 cmd mkfile ${{
   printf "File Name: "
@@ -60,7 +65,7 @@ map dc copy
 map dD push :remove
 map gd cd ~/Downloads
 map gh cd ~
-map gc makd 
+map gc dirf 
 map gf cd ~/Documents
 map gw cd ~/Documents/My_work
 map gp cd  /run/media/rishavmngo/ 

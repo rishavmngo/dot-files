@@ -7,6 +7,7 @@ alias g='git'
 alias lf='lfrun'
 alias s='startx'
 alias his='history|peco --layout=bottom-up'
+export GOBIN=~/go/bin/
 
 
 
