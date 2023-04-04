@@ -7,8 +7,8 @@ alias g='git'
 alias lf='lfrun'
 alias s='startx'
 alias his='history|peco --layout=bottom-up'
-export GOBIN=~/go/bin/
-
+export GOBIN=/home/rishavmngo/go/bin/
+export GO111MODULE="on"
 
 
 

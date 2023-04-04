@@ -16,10 +16,8 @@ vim.opt.breakindent = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.g.mapleader = " "
-vim.opt.termguicolors = true
 vim.opt.clipboard:append({ "unnamedplus" })
-vim.opt.cursorline = true
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme evening")
 vim.cmd([[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]])
 vim.cmd([[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]])
 vim.cmd([[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]])
@@ -40,3 +38,11 @@ vim.opt.listchars:append("eol:↴")
 vim.cmd([[hi DiagnosticError guifg=#EB455F ]])
 
 vim.api.nvim_create_user_command("Playground", "lua playground()", { bang = true })
+-- vim.cmd([[highlight Normal guibg=none]])
+
+vim.opt.cursorline = true
+vim.opt.termguicolors = true
+vim.opt.winblend = 0
+vim.opt.wildoptions = "pum"
+vim.opt.pumblend = 5
+vim.opt.background = "dark"

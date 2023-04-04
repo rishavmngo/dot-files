@@ -227,6 +227,11 @@ globalkeys = gears.table.join(
 		)
 	end, { description = "launch dmenu", group = "launcher" }),
 
+	awful.key({ "Control" }, "d", function()
+		awful.util.spawn(
+			"rofi -no-lazy-grab -show drun -modi run,drun,window -theme ~/.config/rofi/launchers/colorful/style_7.rasi"
+		)
+	end, { description = "launch dmenu", group = "launcher" }),
 	awful.key({ modkey }, "b", function()
 		awful.util.spawn("polybar-msg cmd toggle")
 	end, { description = "launch dmenu", group = "launcher" }),
@@ -586,3 +591,12 @@ battery({
 	alert_title = "Low battery !",
 	alert_text = "${AC_BAT}${time_est}",
 })
+
+client.connect_signal("manage", function(c)
+	if not awesome.startup then
+		-- Enable rounded corners for windows
+		c.shape = function(cr, width, height)
+			gears.shape.rounded_rect(cr, width, height, 5)
+		end
+	end
+end)

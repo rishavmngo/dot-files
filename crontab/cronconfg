@@ -1,0 +1,5 @@
+DISPLAY=":0.0"
+XAUTHORITY="/home/rishavmngo/.Xauthority"
+XDG_RUNTIME_DIR="/run/user/1000"
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+*/5 * * * * /home/rishavmngo/cronjob1.sh 
