@@ -149,7 +149,7 @@
       <attribute name="tool" type="string" value="eraser"/>
     </data>
     <data name="stylus2">
-      <attribute name="tool" type="string" value="selectRect"/>
+      <attribute name="tool" type="string" value="selectRegion"/>
     </data>
     <data name="touch">
       <attribute name="device" type="string" value=""/>
@@ -250,7 +250,7 @@
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="ffdeddda"/>
+      <attribute name="color" type="hex" value="e6904e"/>
       <attribute name="drawingType" type="string" value="default"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="127"/>

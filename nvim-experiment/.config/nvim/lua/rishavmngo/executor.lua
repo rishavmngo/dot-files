@@ -15,7 +15,7 @@ function CreateInputFileIfNotExist()
 end
 
 local executor_map = {
-	cpp = [[!g++ % && ./a.out < input]],
+	cpp = [[silent !g++ % && ./a.out < input]],
 	c = [[!gcc -lm % && ./a.out < input]],
 	javascript = [[!node %]],
 	python = [[!python %]],
@@ -32,3 +32,11 @@ function Compile()
 		print("Warning: Executor for " .. filetype .. " not implemented yet!")
 	end
 end
+
+-- function Compile()
+-- 	local cmd = "g++ 73.cpp -ftime-report 2>&1 | awk '/TOTAL/ { print $3 * 1000 }'"
+-- 	local handle = io.popen(cmd)
+-- 	local result = handle:read("*a")
+-- 	print("[Finished in " .. string.match(result, "%d+") .. "ms]")
+-- 	handle:close()
+-- end

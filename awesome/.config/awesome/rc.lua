@@ -1,6 +1,7 @@
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
+package.path = package.path .. ";~/.config/awesome/?.lua"
 
 -- Standard awesome library
 local gears = require("gears")
@@ -147,7 +148,6 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
 	awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
 	awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
-
 	awful.key({ modkey }, "j", function()
 		awful.client.focus.byidx(1)
 	end, { description = "focus next by index", group = "client" }),
@@ -318,9 +318,10 @@ clientkeys = gears.table.join(
 		end
 	end, { description = "focus right", group = "client" }),
 
-	awful.key({ modkey }, "t", function(c)
-		c.ontop = not c.ontop
-	end, { description = "toggle keep on top", group = "client" }),
+	-- awful.key({ modkey }, "t", function(c)
+	-- 	c.ontop = not c.ontop
+	-- end, { description = "toggle keep on top", group = "client" }),
+
 	awful.key({ modkey }, "n", function(c)
 		-- The client currently has the input focus, so it cannot be
 		-- minimized, since minimized clients can't have the focus.
@@ -440,7 +441,6 @@ awful.rules.rules = {
 				"veromix",
 				"xtightvncviewer",
 			},
-
 			-- Note that the name property shown in xprop might be set slightly after creation of the client
 			-- and the name shown there might not match defined rules here.
 			name = {
@@ -500,20 +500,24 @@ client.connect_signal("request::titlebars", function(c)
 	)
 
 	awful.titlebar(c):setup({
-		{ -- Left
+		{
+			-- Left
 			awful.titlebar.widget.iconwidget(c),
 			buttons = buttons,
 			layout = wibox.layout.fixed.horizontal,
 		},
-		{ -- Middle
-			{ -- Title
+		{
+			-- Middle
+			{
+				-- Title
 				align = "center",
 				widget = awful.titlebar.widget.titlewidget(c),
 			},
 			buttons = buttons,
 			layout = wibox.layout.flex.horizontal,
 		},
-		{ -- Right
+		{
+			-- Right
 			awful.titlebar.widget.floatingbutton(c),
 			awful.titlebar.widget.maximizedbutton(c),
 			awful.titlebar.widget.stickybutton(c),
@@ -593,10 +597,7 @@ battery({
 })
 
 client.connect_signal("manage", function(c)
-	if not awesome.startup then
-		-- Enable rounded corners for windows
-		c.shape = function(cr, width, height)
-			gears.shape.rounded_rect(cr, width, height, 5)
-		end
+	c.shape = function(cr, w, h)
+		gears.shape.rounded_rect(cr, w, h, 15)
 	end
 end)

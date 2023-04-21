@@ -17,7 +17,6 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.g.mapleader = " "
 vim.opt.clipboard:append({ "unnamedplus" })
-vim.cmd("colorscheme evening")
 vim.cmd([[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]])
 vim.cmd([[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]])
 vim.cmd([[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]])
@@ -26,8 +25,8 @@ vim.cmd([[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]])
 vim.cmd([[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]])
 
 vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
-vim.opt.listchars:append("eol:↴")
+-- vim.opt.listchars:append("space:⋅")
+-- vim.opt.listchars:append("eol:↴")
 -- vim.cmd([[let g:lf_map_keys = 0]])
 --
 -- vim.cmd([[  let g:lf_replace_netrw = 1]])
@@ -42,7 +41,11 @@ vim.api.nvim_create_user_command("Playground", "lua playground()", { bang = true
 
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
+vim.o.termguicolors = true
 vim.opt.winblend = 0
 vim.opt.wildoptions = "pum"
 vim.opt.pumblend = 5
 vim.opt.background = "dark"
+
+-- Define the highlight group for the active buffer
+-- vim.cmd("hi BufferLineTabActive guibg=none guifg=white gui=underline cterm=underline")

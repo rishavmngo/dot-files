@@ -35,6 +35,8 @@ vim.keymap.set("n", "<leader>rp", "<Plug>RestNvimPreview")
 vim.keymap.set("n", "<leader>rl", "<Plug>RestNvimLast")
 
 vim.keymap.set("n", "<leader>p", "<Plug>MarkdownPreview")
+-- vim.keymap.set("n", "<A-t>", ":FloatermToggle<CR>")
+vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm direction=float<cr>")
 
 vim.cmd([[
 augroup goodbye_netrw
