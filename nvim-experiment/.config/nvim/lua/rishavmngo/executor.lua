@@ -15,7 +15,7 @@ function CreateInputFileIfNotExist()
 end
 
 local executor_map = {
-	cpp = [[silent !g++ % && ./a.out < input]],
+	cpp = [[!g++ % && ./a.out < input]],
 	c = [[!gcc -lm % && ./a.out < input]],
 	javascript = [[!node %]],
 	python = [[!python %]],

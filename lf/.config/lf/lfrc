@@ -5,12 +5,23 @@ set hidden true
 set ignorecase true
 set drawbox 
 set icons true
-set mouse on
+set mouse true 
 cmd mkdir ${{
   printf "Directory Name: "
   read ans
   mkdir $ans
 }}
+
+cmd z %{{
+	result="$(zoxide query --exclude $PWD $@)"
+	lf -remote "send $id cd $result"
+}}
+
+cmd zi ${{
+	result="$(zoxide query -i)"
+	lf -remote "send $id cd $result"
+}}
+
 cmd makd ${{
   printf "path: "
   read ans
@@ -20,6 +31,11 @@ cmd dirf ${{
   printf "paths: "
 	read ans
 	dirf $ans
+	}}
+
+cmd zirf ${{
+	read ans
+	z  $ans
 	}}
 
 cmd mkfile ${{
@@ -69,7 +85,8 @@ map gc dirf
 map gf cd ~/Documents
 map gw cd ~/Documents/My_work
 map gp cd  /run/media/rishavmngo/ 
-map gk mkdir 
+map gk z
+map gl zi
 cmd z-jump ${{
   # ZLUA_SCRIPT="/path/to/z.lua"  # Usually unnecessary
   lf -remote "send ${id} cd '$($ZLUA_SCRIPT -e $@)'"

@@ -561,6 +561,8 @@ awful.spawn.with_shell("picom --config $HOME/.config/picom/picom.conf")
 
 awful.spawn.with_shell("$HOME/.config/polybar/launch.sh --grayblocks")
 awful.spawn.with_shell("layout")
+-- awful.spawn.with_shell("xsetwacom --set  'Wacom One by Wacom S Pen stylus' Button 1 'pan'")
+awful.spawn.with_shell("xsetwacom --set 'Wacom One by Wacom S Pen stylus'  'PanScrollThreshold' 200")
 -- awful.spawn.with_shell("/home/rishavmngo/battery.sh")
 -- radius
 client.connect_signal("manage", function(c)

@@ -1,6 +1,6 @@
 -- keybindings
 -- vim.keymap.set("n", "<space>w", "<cmd>write<cr>", { desc = "" })
-vim.keymap.set("n", "<leader>s", "<cmd>source %<cr>")
+vim.keymap.set("n", "<leader>s", "<cmd>runtime ~/.config/nvim<cr>")
 vim.keymap.set("n", "<leader>cc", "<cmd>Ccompile<cr>")
 vim.keymap.set("n", "<leader>ci", "<cmd>Cinput<cr>")
 vim.keymap.set("n", "<C-a>", ":keepjumps normal! ggVG<cr>")

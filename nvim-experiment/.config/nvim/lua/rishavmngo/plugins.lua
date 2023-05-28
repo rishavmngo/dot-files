@@ -42,6 +42,7 @@ packer.init({
 return packer.startup(function(use)
 	-- My plugins here
 	use("wbthomason/packer.nvim") -- Have packer manage itself
+	use("famiu/nvim-reload")
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use({
@@ -127,6 +128,15 @@ return packer.startup(function(use)
 		"loctvl842/monokai-pro.nvim",
 		config = function()
 			require("monokai-pro").setup()
+		end,
+	})
+	use({
+		"kylechui/nvim-surround",
+		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
 		end,
 	})
 	use({
