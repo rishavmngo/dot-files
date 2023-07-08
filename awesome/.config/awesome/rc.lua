@@ -249,6 +249,19 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
 	awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
 	awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
+	awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
+	awful.key({ altkey, "Shift" }, "1", function()
+		awful.spawn.with_shell("$HOME/screen_scripts/layout.sh laptop")
+	end, { description = "change layout", group = "xrandr" }),
+
+	awful.key({ altkey, "Shift" }, "2", function()
+		awful.spawn.with_shell("$HOME/screen_scripts/layout.sh monitor")
+	end, { description = "change layout", group = "xrandr" }),
+
+	awful.key({ altkey, "Shift" }, "3", function()
+		awful.spawn.with_shell("$HOME/screen_scripts/layout.sh both")
+	end, { description = "change layout", group = "xrandr" }),
+
 	awful.key({ modkey }, "j", function()
 		awful.client.focus.byidx(1)
 	end, { description = "focus next by index", group = "client" }),
