@@ -1,4 +1,37 @@
 local on_attach = function(_, bufnr)
+	local signs = {
+
+		{ name = "DiagnosticSignError", text = "" },
+		{ name = "DiagnosticSignWarn",  text = "" },
+		{ name = "DiagnosticSignHint",  text = "" },
+		{ name = "DiagnosticSignInfo",  text = "" },
+	}
+
+	for _, sign in ipairs(signs) do
+		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+	end
+
+	local config = {
+		virtual_text = false, -- disable virtual text
+		signs = {
+			active = signs, -- show signs
+		},
+		update_in_insert = true,
+		underline = true,
+		severity_sort = true,
+		float = {
+			focusable = true,
+			style = "minimal",
+			border = "rounded",
+			source = "always",
+			header = "",
+			prefix = "",
+		},
+	}
+
+	vim.diagnostic.config(config)
+
+
 	local nmap = function(keys, func, desc)
 		if desc then
 			desc = 'LSP: ' .. desc
@@ -8,6 +41,7 @@ local on_attach = function(_, bufnr)
 	end
 
 	nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+	nmap("gl", vim.diagnostic.open_float, 'open float diagnostic')
 	nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 	nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
 	nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
@@ -23,7 +57,7 @@ local on_attach = function(_, bufnr)
 	nmap('<leader>wl', function()
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	end, '[W]orkspace [L]ist Folders')
-
+	vim.keymap.set("n", "go", "<C-T>")
 	vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
 		vim.lsp.buf.format()
 	end, { desc = 'Format current buffer with LSP' })
