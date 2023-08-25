@@ -1,5 +1,8 @@
 lastupdatecheck: 0
 recentrepos:
+    - /home/rishavmngo/Documents/My_work/web_dev/javascript/chat-app
+    - /home/rishavmngo/Documents/My_work/web_dev/nextjs/breadit
+    - /home/rishavmngo/Documents/My_work/competetive/leetcode
     - /home/rishavmngo/dot-files
     - /home/rishavmngo/Documents/My_work/web_dev/nextjs/nextjs-blog
     - /home/rishavmngo/Documents/My_work/web_dev/medsphere
@@ -10,7 +13,6 @@ recentrepos:
     - /home/rishavmngo/Documents/My_work/go-project/todo
     - /home/rishavmngo/Documents/My_work/web_dev/javascript/app
     - /home/rishavmngo/Documents/My_work/web_dev/react-projects/portfolio
-    - /home/rishavmngo/Documents/My_work/competetive/leetcode
     - /home/rishavmngo/Documents/My_work/web_dev/react-projects/crwn-clothing
 startuppopupversion: 5
 customcommandshistory: []
