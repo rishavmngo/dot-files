@@ -13,7 +13,8 @@ map("n", "sl", "<C-w>l")
 map("n", "sh", "<C-w>h")
 map("n", "sj", "<C-w>j")
 map("n", "sk", "<C-w>k")
-
+vim.keymap.set("n", "<s-l>", "<cmd>BufferLineCycleNext<cr>")
+vim.keymap.set("n", "<s-h>", "<cmd>BufferLineCyclePrev<cr>")
 
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
