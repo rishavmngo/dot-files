@@ -3,7 +3,6 @@ local o = vim.o
 
 g.mapleader = ' '
 g.maplocalleader = ' '
-
 o.hlsearch = false
 
 -- Make line numbers default
@@ -39,4 +38,4 @@ vim.opt.list = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 o.background = "dark"
-vim.cmd [[colorscheme gruvbox]]
+-- vim.g.db_ui_save_location = '~/dadbod'

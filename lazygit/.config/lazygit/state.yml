@@ -1,6 +1,8 @@
 lastupdatecheck: 0
 recentrepos:
     - /home/rishavmngo/dot-files
+    - /home/rishavmngo/Documents/My_work/go-project/learn_go_with_tests
+    - /home/rishavmngo/Documents/My_work/go-project/todo-http
     - /home/rishavmngo/Documents/My_work/web_dev/javascript/chat-app
     - /home/rishavmngo/Documents/My_work/web_dev/nextjs/breadit
     - /home/rishavmngo/Documents/My_work/competetive/leetcode
@@ -10,7 +12,6 @@ recentrepos:
     - /home/rishavmngo/Downloads/nand2tetris
     - /home/rishavmngo/Documents/My_work/web_dev/keeptrack
     - /home/rishavmngo/Documents/My_work/go-project/gosql
-    - /home/rishavmngo/Documents/My_work/go-project/todo
     - /home/rishavmngo/Documents/My_work/web_dev/javascript/app
     - /home/rishavmngo/Documents/My_work/web_dev/react-projects/portfolio
     - /home/rishavmngo/Documents/My_work/web_dev/react-projects/crwn-clothing

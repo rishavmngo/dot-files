@@ -13,8 +13,11 @@ map("n", "sl", "<C-w>l")
 map("n", "sh", "<C-w>h")
 map("n", "sj", "<C-w>j")
 map("n", "sk", "<C-w>k")
+map("n", "<C-a>", ":keepjumps normal! ggVG<cr>")
 vim.keymap.set("n", "<s-l>", "<cmd>BufferLineCycleNext<cr>")
 vim.keymap.set("n", "<s-h>", "<cmd>BufferLineCyclePrev<cr>")
+vim.keymap.set("n", "<leader>du", "<Cmd>DBUIToggle<Cr>")
+-- vim.keymap.set("n","<leader>dt","<Cmd>DBUIToggle<Cr>")
 
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
@@ -23,13 +26,16 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- vim.g.lf_netrw = 1
 -- map("n", "<leader>f", ":LfCurrentDirectory<CR>")
 
-vim.g.floaterm_opener = "vsplit"
+-- vsplit split edit
+vim.g.floaterm_opener = "edit"
 vim.g.floaterm_width = 0.95
 vim.g.floaterm_height = 0.95
-vim.g.lf_split_type = 'v'
+-- vim.g.lf_split_type = 'v'
 vim.keymap.set("n", "<leader>g", ":FloatermNew lazygit<CR>")
 -- vim.keymap.set("n", "<leader>f", ":FloatermNew lfrun<CR>")
 vim.keymap.set("n", "<leader>f", ":FloatermNew lf " .. vim.fn.expand("%:p") .. "<CR>")
+-- vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm direction=float<cr>")
+vim.keymap.set("n", "<leader>t", ":FloatermToggle <cr>")
 
 vim.cmd([[
 augroup goodbye_netrw
