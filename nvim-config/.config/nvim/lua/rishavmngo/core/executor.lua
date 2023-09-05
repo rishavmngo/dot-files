@@ -1,6 +1,9 @@
 vim.api.nvim_create_user_command("Ccompile", "lua Compile()", { bang = true })
 vim.api.nvim_create_user_command("Cinput", "lua OpenInputInVerticalSplit(30)", { bang = true })
 
+vim.keymap.set("n", "<leader>cc", "<cmd>Ccompile<cr>")
+vim.keymap.set("n", "<leader>ci", "<cmd>Cinput<cr>")
+
 function OpenInputInVerticalSplit(size)
 	CreateInputFileIfNotExist()
 	local str = size .. "vsplit input"

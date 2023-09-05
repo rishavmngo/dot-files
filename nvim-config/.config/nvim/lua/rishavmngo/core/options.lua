@@ -38,4 +38,5 @@ vim.opt.list = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 o.background = "dark"
+-- vim.cmd [[colorscheme catppuccin-mocha]]
 -- vim.g.db_ui_save_location = '~/dadbod'

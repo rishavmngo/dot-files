@@ -18,7 +18,7 @@ end
 
 lazy.setup({
 	spec = {
-
+		{ "catppuccin/nvim",          name = "catppuccin", priority = 1000 },
 		'tpope/vim-dadbod',
 		'kristijanhusak/vim-dadbod-ui',
 		'kristijanhusak/vim-dadbod-completion',

@@ -32,7 +32,7 @@ items:
 colors:
   # Default colors
   primary:
-    background: '0x282a36'
+    background: '0x24273a'
     foreground: '0xf8f8f2'
 
   # Normal colors
@@ -104,8 +104,8 @@ theme: dracula
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
-# TERM variable
+env:
+  TERM: xterm-256color
 #
 # This value is used to set the `$TERM` environment variable for
 # each instance of Alacritty. If it is not present, alacritty will
@@ -422,16 +422,21 @@ transparent_background_colors: true
 #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 # When set to `true`, selected text will be copied to the primary clipboard.
 #save_to_clipboard: false
-#cursor:
+# cursor:
+#   style:
+#     shape: Beam
+#   vi_mode_style:
+#     shape: Beam
+# cursor:
 # Cursor style
-#style:
-# Cursor shape
+# style:
+# Cursor underline
 #
 # Values for `shape`:
 #   - ▇ Block
 #   - _ Underline
 #   - | Beam
-#shape: Block
+# shape: Beam
 # Cursor blinking state
 #
 # Values for `blinking`:
@@ -439,7 +444,7 @@ transparent_background_colors: true
 #   - Off: Disable blinking by default
 #   - On: Enable blinking by default
 #   - Always: Force the cursor to always blink
-#blinking: Off
+blinking: On
 # Vi mode cursor style
 #
 # If the vi mode cursor style is `None` or not specified, it will fall back to
