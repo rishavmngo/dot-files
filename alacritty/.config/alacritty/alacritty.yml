@@ -29,11 +29,12 @@ items:
         cyan: '#b5e4f4'
         white: '#f7f7f7'
   - theme: 3024.dark
+
 colors:
   # Default colors
   primary:
-    background: '0x24273a'
-    foreground: '0xf8f8f2'
+    background: '0x151515'
+    foreground: '0xe0d0b0'
 
   # Normal colors
   normal:

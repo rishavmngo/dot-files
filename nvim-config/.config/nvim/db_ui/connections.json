@@ -1,1 +1,1 @@
-[{"url": "postgresql://localhost:3555/", "name": "test"}, {"url": "postgresql://postgres:password%3A3555@localhost/restapi", "name": "restapi"}, {"url": "postgresql://postgres:password@localhost:3555/restapi", "name": "restapitest"}]
+[{"url": "postgresql://localhost:3555/", "name": "test"}, {"url": "postgresql://postgres:password%3A3555@localhost/restapi", "name": "restapi"}, {"url": "postgresql://postgres:password@localhost:3555/restapi", "name": "restapitest"}, {"url": "postgresql://postgres:password@localhost:3555/chatter", "name": "chatter"}]
