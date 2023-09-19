@@ -24,7 +24,7 @@ luasnip.add_snippets("all", {
 	}),
 })
 local function fn(
-	args, -- text from i(2) in this example i.e. { { "456" } }
+	args,  -- text from i(2) in this example i.e. { { "456" } }
 	parent, -- parent snippet or parent node
 	user_args -- user_args from opts.user_args
 )
@@ -64,7 +64,7 @@ luasnip.add_snippets("cpp", {
 })
 
 require("luasnip/loaders/from_vscode").lazy_load()
-
+require("luasnip.loaders.from_vscode").lazy_load({ paths = { "../../my-snippets" } })
 local check_backspace = function()
 	local col = vim.fn.col(".") - 1
 	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
