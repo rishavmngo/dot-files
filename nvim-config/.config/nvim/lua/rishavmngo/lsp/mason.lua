@@ -61,6 +61,7 @@ local on_attach = function(_, bufnr)
 	vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
 		vim.lsp.buf.format()
 	end, { desc = 'Format current buffer with LSP' })
+	nmap("<leader>lf", "<cmd>Format<CR>", "hey")
 end
 
 local servers = {
@@ -68,7 +69,10 @@ local servers = {
 	gopls = {},
 	pyright = {},
 	rust_analyzer = {},
-	tsserver = {},
+	tsserver = {
+		filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+		cmd = { "typescript-language-server", "--stdio" },
+	},
 	html = { filetypes = { 'html', 'twig', 'hbs' } },
 	lua_ls = {
 		Lua = {
@@ -76,6 +80,10 @@ local servers = {
 			telemetry = { enable = false },
 		},
 	},
+	emmet_ls = {
+		cmd = { "emmet-ls", "--stdio" },
+		filetype = { "html", "typescriptreact", "javascriptreact", "eruby" },
+	}
 }
 
 -- Setup neovim lua configuration

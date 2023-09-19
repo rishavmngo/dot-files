@@ -1,0 +1,11 @@
+{
+	"cor": {
+		"prefix": "cor",
+		"body": [
+			"for (${1:size_t} ${2:i} = ${3:0}; $2 < ${4:length}; $2++) {",
+			"\t$0",
+			"}"
+		],
+		"description": "Code snippet for 'cor' loop"
+	}
+}

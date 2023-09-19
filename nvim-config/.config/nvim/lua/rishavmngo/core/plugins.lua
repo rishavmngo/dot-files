@@ -54,7 +54,7 @@ lazy.setup({
 			end,
 		},
 		"JoosepAlviste/nvim-ts-context-commentstring",
-		"akinsho/bufferline.nvim",
+		{ "akinsho/bufferline.nvim", dependencies = 'nvim-tree/nvim-web-devicons' },
 		{
 			"norcalli/nvim-colorizer.lua",
 		},
@@ -69,6 +69,7 @@ lazy.setup({
 		-- autoTag and autopairs
 		"windwp/nvim-autopairs",
 		"windwp/nvim-ts-autotag",
+
 		'tpope/vim-fugitive',
 		'tpope/vim-rhubarb',
 
