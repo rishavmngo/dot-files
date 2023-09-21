@@ -70,7 +70,7 @@ local servers = {
 	pyright = {},
 	rust_analyzer = {},
 	tsserver = {
-		filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+		filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
 		cmd = { "typescript-language-server", "--stdio" },
 	},
 	html = { filetypes = { 'html', 'twig', 'hbs' } },
@@ -82,8 +82,9 @@ local servers = {
 	},
 	emmet_ls = {
 		cmd = { "emmet-ls", "--stdio" },
-		filetype = { "html", "typescriptreact", "javascriptreact", "eruby" },
-	}
+		filetype = { "html", "typescriptreact", "javascriptreact", "eruby", "javascript" },
+	},
+	prismals = {}
 }
 
 -- Setup neovim lua configuration
