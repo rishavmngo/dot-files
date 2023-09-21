@@ -340,6 +340,9 @@ globalkeys = gears.table.join(
 		awful.util.spawn("google-chrome-stable")
 	end, { description = "launch chromium", group = "launcher" }),
 
+	awful.key({ modkey }, "e", function()
+		awful.util.spawn("thunar")
+	end, { description = "launch thunar", group = "launcher" }),
 	awful.key({ modkey, "Control" }, "n", function()
 		local c = awful.client.restore()
 		-- Focus restored client
@@ -609,7 +612,7 @@ awful.spawn.with_shell("xinput set-prop 'ELAN1301:00 04F3:30C6 Touchpad' 'libinp
 awful.spawn.with_shell("xsetwacom --set 'Wacom One by Wacom S Pen stylus'  'PanScrollThreshold' 200")
 awful.spawn.with_shell("picom --config $HOME/.config/picom/picom.conf")
 awful.spawn.with_shell(
-"eval $(gnome-keyring-daemon --start) && exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+	"eval $(gnome-keyring-daemon --start) && exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
