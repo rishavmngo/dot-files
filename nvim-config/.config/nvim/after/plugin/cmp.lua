@@ -46,7 +46,58 @@ luasnip.add_snippets("cpp", {
 		t({ "", "// for (auto x : v) {", '//   cout << x << " ";', "// }", "}" }),
 	}),
 })
+
+
+local lspkind = require('lspkind')
+-- 
+local kind_icons = {
+	Text = "",
+	Method = "Ṁ",
+	Function = "ƒ",
+	Constructor = "",
+	Field = "",
+	Variable = "",
+	Class = "",
+	Interface = "",
+	Module = "",
+	Property = "",
+	Unit = "",
+	Value = "",
+	Enum = "",
+	Keyword = "",
+	Snippet = "ﱟ",
+	Color = "",
+	File = "",
+	Reference = "",
+	Folder = "",
+	EnumMember = "",
+	Constant = "",
+	Struct = "",
+	Event = "",
+	Operator = "",
+	TypeParameter = "",
+}
+
+
 cmp.setup {
+	window = {
+		documentation = {
+			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+			-- border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+			-- border = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" },
+		},
+	},
+	formatting = {
+		fields = { "kind", "abbr", "menu" },
+		format = function(entry, vim_item)
+			-- Kind icons
+			local type = vim_item.kind
+			vim_item.kind = string.format(' %s ', kind_icons[vim_item.kind]) -- This concatonates the icons with the name of the item kind
+			-- Source
+			vim_item.menu = type
+			return vim_item
+		end
+	},
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -84,6 +135,35 @@ cmp.setup {
 	sources = {
 		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },
-		{ name = "vim-dadbod-completion" }
+		{ name = "vim-dadbod-completion" },
+		{ name = "buffer" },
+		{ name = "path" }
 	},
 }
+
+
+vim.api.nvim_set_hl(0, "CmpItemKindInterface", { fg = "#3A3A3A", bg = "#3ddbd9" })
+vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = "#3A3A3A", bg = "#3ddbd9" })
+vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = "#3A3A3A", bg = "#3ddbd9" })
+vim.api.nvim_set_hl(0, "CmpItemKindText", { fg = "#ffffff", bg = "#78a9ff" })
+vim.api.nvim_set_hl(0, "CmpItemKindEnum", { fg = "#ffffff", bg = "#78a9ff" })
+vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { fg = "#ffffff", bg = "#78a9ff" })
+vim.api.nvim_set_hl(0, "CmpItemKindConstant", { fg = "#ffffff", bg = "#E95396" })
+vim.api.nvim_set_hl(0, "CmpItemKindConstructor", { fg = "#ffffff", bg = "#E95396" })
+vim.api.nvim_set_hl(0, "CmpItemKindReference", { fg = "#ffffff", bg = "#E95396" })
+vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = "#3A3A3A", bg = "#33B1FF" })
+vim.api.nvim_set_hl(0, "CmpItemKindStruct", { fg = "#3A3A3A", bg = "#33B1FF" })
+vim.api.nvim_set_hl(0, "CmpItemKindClass", { fg = "#3A3A3A", bg = "#33B1FF" })
+vim.api.nvim_set_hl(0, "CmpItemKindModule", { fg = "#3A3A3A", bg = "#33B1FF" })
+vim.api.nvim_set_hl(0, "CmpItemKindOperator", { fg = "#3A3A3A", bg = "#33B1FF" })
+vim.api.nvim_set_hl(0, "CmpItemKindField", { fg = "#ffffff", bg = "#673AB7" })
+vim.api.nvim_set_hl(0, "CmpItemKindProperty", { fg = "#ffffff", bg = "#673AB7" })
+vim.api.nvim_set_hl(0, "CmpItemKindEvent", { fg = "#ffffff", bg = "#673AB7" })
+vim.api.nvim_set_hl(0, "CmpItemKindUnit", { fg = "#3A3A3A", bg = "#42b365" })
+vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = "#3A3A3A", bg = "#42b365" })
+vim.api.nvim_set_hl(0, "CmpItemKindFolder", { fg = "#3A3A3A", bg = "#42b365" })
+vim.api.nvim_set_hl(0, "CmpItemKindVariable", { fg = "#3A3A3A", bg = "#be95ff" })
+vim.api.nvim_set_hl(0, "CmpItemKindFile", { fg = "#3A3A3A", bg = "#be95ff" })
+vim.api.nvim_set_hl(0, "CmpItemKindMethod", { fg = "#3A3A3A", bg = "#82CFFF" })
+vim.api.nvim_set_hl(0, "CmpItemKindValue", { fg = "#3A3A3A", bg = "#82CFFF" })
+vim.api.nvim_set_hl(0, "CmpItemKindEnumMember", { fg = "#3A3A3A", bg = "#82CFFF" })

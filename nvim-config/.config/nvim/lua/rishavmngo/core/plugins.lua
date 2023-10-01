@@ -19,6 +19,14 @@ end
 lazy.setup({
 	spec = {
 		{ "catppuccin/nvim",          name = "catppuccin", priority = 1000 },
+		"onsails/lspkind.nvim",
+		"nyoom-engineering/oxocarbon.nvim",
+		{
+			"norcalli/nvim-colorizer.lua",
+			config = function()
+				require("colorizer").setup()
+			end
+		},
 		'tpope/vim-dadbod',
 		'kristijanhusak/vim-dadbod-ui',
 		'kristijanhusak/vim-dadbod-completion',
@@ -126,11 +134,7 @@ lazy.setup({
 				},
 			},
 		},
-
-		{
-			-- Add indentation guides even on blank lines
-			'lukas-reineke/indent-blankline.nvim',
-		},
+		{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 
 		-- "gc" to comment visual regions/lines
 		{ 'numToStr/Comment.nvim' },

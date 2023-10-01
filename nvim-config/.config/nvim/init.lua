@@ -5,4 +5,5 @@ require("rishavmngo.lsp.lspconfig")
 require("rishavmngo.lsp.mason")
 require("rishavmngo.core.keymaps")
 require("rishavmngo.core.executor")
--- vim.cmd[[colorscheme catppuccin-mocha]]
+-- vim.cmd [[colorscheme oxocarbon]]
+-- vim.cmd [[colorscheme oxocarbon]]

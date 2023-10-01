@@ -1,10 +1,11 @@
 local on_attach = function(_, bufnr)
-	local signs = {
+	vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
+	local signs = {
 		{ name = "DiagnosticSignError", text = "" },
-		{ name = "DiagnosticSignWarn",  text = "" },
-		{ name = "DiagnosticSignHint",  text = "" },
-		{ name = "DiagnosticSignInfo",  text = "" },
+		{ name = "DiagnosticSignWarn", text = "" },
+		{ name = "DiagnosticSignHint", text = "" },
+		{ name = "DiagnosticSignInfo", text = "" },
 	}
 
 	for _, sign in ipairs(signs) do
@@ -39,6 +40,8 @@ local on_attach = function(_, bufnr)
 
 		vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
 	end
+
+
 
 	nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 	nmap("gl", vim.diagnostic.open_float, 'open float diagnostic')
@@ -84,7 +87,11 @@ local servers = {
 		cmd = { "emmet-ls", "--stdio" },
 		filetype = { "html", "typescriptreact", "javascriptreact", "eruby", "javascript" },
 	},
-	prismals = {}
+	prismals = {},
+	cssls = {
+		cmd = { "vscode-css-language-server", "--stdio" },
+		filetype = { "css", "scss", "less" },
+	}
 }
 
 -- Setup neovim lua configuration
@@ -93,7 +100,14 @@ require('neodev').setup()
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- capabilities.textDocument.completion.completionItem.resolveSupport = {
+-- 	properties = {
+-- 		"documentation",
+-- 		"detail",
+-- 		"additionalTextEdits",
+-- 	},
+-- }
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
 
@@ -111,3 +125,18 @@ mason_lspconfig.setup_handlers {
 		}
 	end
 }
+
+
+-- function lua_ls.completion.on_complete(suggestions)
+-- 	local popup = vim.ui.popup_create({
+-- 		title = "Autocompletion Suggestions",
+-- 		line = vim.api.nvim_win_get_cursor(vim.api.nvim_get_current_win())[1],
+-- 		col = vim.api.nvim_win_get_cursor(vim.api.nvim_get_current_win())[2],
+-- 	})
+--
+-- 	for _, suggestion in ipairs(suggestions) do
+-- 		popup:add_line(suggestion.label)
+-- 	end
+--
+-- 	popup:show()
+-- end
