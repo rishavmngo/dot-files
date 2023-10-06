@@ -80,7 +80,7 @@ local servers = {
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
-			telemetry = { enable = false },
+			-- telemetry = { enable = false },
 		},
 	},
 	emmet_ls = {

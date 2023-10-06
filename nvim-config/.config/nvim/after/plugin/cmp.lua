@@ -4,6 +4,7 @@ require('luasnip.loaders.from_vscode').lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
 luasnip.config.setup {}
 
+
 local t = luasnip.text_node
 local i = luasnip.insert_node
 local s = luasnip.snippet
