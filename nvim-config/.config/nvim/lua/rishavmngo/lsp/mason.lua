@@ -91,6 +91,9 @@ local servers = {
 	cssls = {
 		cmd = { "vscode-css-language-server", "--stdio" },
 		filetype = { "css", "scss", "less" },
+	},
+	jdtls = {
+		filetype = { "java" }
 	}
 }
 

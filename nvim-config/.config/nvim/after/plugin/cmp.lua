@@ -79,6 +79,7 @@ local kind_icons = {
 	TypeParameter = "",
 }
 
+local compare = require("cmp.config.compare")
 
 cmp.setup {
 	window = {
@@ -134,12 +135,19 @@ cmp.setup {
 		end, { 'i', 's' }),
 	},
 	sources = {
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' },
+		{ name = 'nvim_lsp', },
+		{ name = 'luasnip', },
 		{ name = "vim-dadbod-completion" },
-		{ name = "buffer" },
-		{ name = "path" }
-	},
+		{ name = "buffer", },
+		{ name = "path", }
+	}
+	-- sorting = {
+	-- 	priority_weight = 10,
+	-- 	comparators = {
+	-- 		compare.score,
+	-- 		compare.order,
+	-- 	},
+	-- }
 }
 
 

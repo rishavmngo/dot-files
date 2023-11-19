@@ -42,7 +42,7 @@ vim.keymap.set('n', '<leader>/', function()
     previewer = false,
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
-
+-- { no_ignore = false, hidden = true }
 vim.keymap.set('n', ';f', function()
   builtin.find_files({ no_ignore = false, hidden = true })
 end, { desc = '[S]earch [F]iles' })

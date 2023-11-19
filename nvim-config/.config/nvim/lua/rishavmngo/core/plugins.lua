@@ -47,11 +47,11 @@ lazy.setup({
 			requires = { "toggleterm.nvim" }
 		},
 		{ "ellisonleao/gruvbox.nvim", priority = 1000 },
-		{
-			"svrana/neosolarized.nvim",
-			requires = { "tjdevries/colorbuddy.nvim" },
-		}
-		,
+		-- {
+		-- 	"svrana/neosolarized.nvim",
+		-- 	requires = { "tjdevries/colorbuddy.nvim" },
+		-- }
+		-- ,
 		{
 			"kylechui/nvim-surround",
 			tag = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -111,7 +111,9 @@ lazy.setup({
 				-- Snippet Engine & its associated nvim-cmp source
 				'L3MON4D3/LuaSnip',
 				'saadparwaiz1/cmp_luasnip',
+				"hrsh7th/cmp-path",
 
+				"hrsh7th/cmp-buffer",
 				-- Adds LSP completion capabilities
 				'hrsh7th/cmp-nvim-lsp',
 
