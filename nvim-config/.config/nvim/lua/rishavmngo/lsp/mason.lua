@@ -65,6 +65,16 @@ local on_attach = function(_, bufnr)
 		vim.lsp.buf.format()
 	end, { desc = 'Format current buffer with LSP' })
 	nmap("<leader>lf", "<cmd>Format<CR>", "hey")
+
+
+	-- nmap("<leader>di", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
+	-- nmap("<leader>dt", "<Cmd>lua require'jdtls'.test_class()<CR>", opts)
+	-- nmap("<leader>dn", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", opts)
+	-- nmap("v", "<leader>de", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
+	-- vim.keymap.set("n", "<leader>de", "<Cmd>lua require('jdtls').extract_variable()<CR>")
+
+	-- vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+	-- nmap("v", "<leader>dm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
 end
 
 local servers = {
@@ -72,6 +82,7 @@ local servers = {
 	gopls = {},
 	pyright = {},
 	rust_analyzer = {},
+	lemminx = {},
 	tsserver = {
 		filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
 		cmd = { "typescript-language-server", "--stdio" },
