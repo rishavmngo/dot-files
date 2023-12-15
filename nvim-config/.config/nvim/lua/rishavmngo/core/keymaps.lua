@@ -36,6 +36,7 @@ vim.keymap.set("n", "<leader>g", ":FloatermNew lazygit<CR>")
 vim.keymap.set("n", "<leader>f", ":FloatermNew lf " .. vim.fn.expand("%:p") .. "<CR>")
 -- vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm direction=float<cr>")
 vim.keymap.set("n", "<leader>t", ":FloatermToggle <cr>")
+vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action)
 
 vim.cmd([[
 augroup goodbye_netrw

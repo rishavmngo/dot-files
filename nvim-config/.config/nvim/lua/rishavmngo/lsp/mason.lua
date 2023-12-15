@@ -103,9 +103,9 @@ local servers = {
 		cmd = { "vscode-css-language-server", "--stdio" },
 		filetype = { "css", "scss", "less" },
 	},
-	jdtls = {
-		filetype = { "java" }
-	}
+	-- jdtls = {
+	-- 	filetype = { "java" }
+	-- }
 }
 
 -- Setup neovim lua configuration
@@ -131,6 +131,10 @@ mason_lspconfig.setup {
 
 mason_lspconfig.setup_handlers {
 	function(server_name)
+		if server_name == 'jdtls' then
+			return
+		end
+
 		require('lspconfig')[server_name].setup {
 			capabilities = capabilities,
 			on_attach = on_attach,

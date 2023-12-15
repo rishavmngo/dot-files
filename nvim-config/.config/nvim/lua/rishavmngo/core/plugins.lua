@@ -122,6 +122,7 @@ lazy.setup({
 			},
 		},
 
+		'mfussenegger/nvim-jdtls',
 		-- Useful plugin to show you pending keybinds.
 
 		{
