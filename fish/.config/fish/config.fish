@@ -7,7 +7,7 @@ alias g='git'
 alias lf='lfrun'
 alias s='startx'
 alias po="podman"
-# alias docker='podmon'
+alias mci='mvn clean install quarkus:dev'
 alias his='history|peco --layout=bottom-up'
 export GOBIN=/home/rishavmngo/go/bin/
 export GO111MODULE="on"

@@ -8,11 +8,6 @@ local opts = {
       completion = {
         favoriteStaticMembers = {},
         filteredTypes = {
-          -- "com.sun.*",
-          -- "io.micrometer.shaded.*",
-          -- "java.awt.*",
-          -- "jdk.*",
-          -- "sun.*",
         },
       },
       sources = {
@@ -29,19 +24,19 @@ local opts = {
       },
       configuration = {
         runtimes = {
-          {
-            name = "JavaSE-11",
-            path = "/usr/lib/jvm/java-11-openjdk",
-          },
+          -- {
+          --   name = "JavaSE-11",
+          --   path = "/usr/lib/jvm/java-11-openjdk",
+          -- },
           {
             name = "JavaSE-17",
             path = "/usr/lib/jvm/java-17-openjdk",
             default = true,
           },
-          {
-            name = "JavaSE-21",
-            path = "/usr/lib/jvm/java-21-openjdk",
-          },
+          -- {
+          --   name = "JavaSE-21",
+          --   path = "/usr/lib/jvm/java-21-openjdk",
+          -- },
         },
       },
     },
@@ -74,37 +69,10 @@ local function setup()
     workspace_dir,
   }
 
-  -- opts.cmd = {
-  --   "java",
-  --   "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-  --   "-Dosgi.bundles.defaultStartLevel=4",
-  --   "-Declipse.product=org.eclipse.jdt.ls.core.product",
-  --   "-Dlog.protocol=true",
-  --   "-Dlog.level=ALL",
-  --   "-javaagent:" .. JDTLS_PATH .. "/lombok.jar",
-  --   "-Xmx1g",
-  --   "--add-modules=ALL-SYSTEM",
-  --   "--add-opens",
-  --   "java.base/java.util=ALL-UNNAMED",
-  --   "--add-opens",
-  --   "java.base/java.lang=ALL-UNNAMED",
-  --
-  --   "-jar",
-  --   vim.fn.glob(JDTLS_PATH .. "/plugins/org.eclipse.equinox.launcher_*.jar", true),
-  --
-  --
-  --   "-data",
-  --   workspace_dir,
-  -- }
 
 
   local on_attach = function(client, bufnr)
     jdtls.setup.add_commands() -- important to ensure you can update configs when build is updated
-    -- if you setup DAP according to https://github.com/mfussenegger/nvim-jdtls#nvim-dap-configuration you can uncomment below
-    -- jdtls.setup_dap({ hotcodereplace = "auto" })
-    -- jdtls.dap.setup_dap_main_class_configs()
-
-    -- you may want to also run your generic on_attach() function used by your LSP config
 
     vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
