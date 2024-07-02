@@ -69,6 +69,7 @@ altkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
 	awful.layout.suit.tile,
+	awful.layout.suit.floating,
 }
 -- }}}
 
@@ -295,6 +296,7 @@ local function volume_increase()
 	awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +1000")
 	show_volume_notification()
 end
+
 -- {{{ Key bindings
 globalkeys = gears.table.join(
 	awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
@@ -347,6 +349,7 @@ globalkeys = gears.table.join(
 			client.focus:raise()
 		end
 	end, { description = "go back", group = "client" }),
+
 	awful.key({ modkey, "Shift" }, "Tab", function()
 		awful.client.focus.byidx(-1)
 		if client.focus then
