@@ -31,8 +31,21 @@ return {
         desc = "Goto Definition",
         has = "definition",
       }
+      keys[#keys + 1] = {
+        "go",
+        "<C-T>",
+      }
+      keys[#keys + 1] = {
+        "gl",
+        vim.diagnostic.open_float,
+      }
     end,
     opts = {
+      diagnostics = {
+        underline = true,
+        update_in_insert = false,
+        virtual_text = false,
+      },
       inlay_hints = { enabled = false },
       ---@type lspconfig.options
       servers = {
