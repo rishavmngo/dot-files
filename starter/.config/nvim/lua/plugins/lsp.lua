@@ -13,6 +13,7 @@ return {
         "shfmt",
         "typescript-language-server",
         "css-lsp",
+        "pyright",
       })
     end,
   },
@@ -49,6 +50,12 @@ return {
       inlay_hints = { enabled = false },
       ---@type lspconfig.options
       servers = {
+        pyright = {
+          root_dir = function(...)
+            return require("lspconfig.util").root_pattern("tombl.toml")(...)
+          end,
+          single_file_support = false,
+        },
         jdtls = {},
         cssls = {},
         tsserver = {
@@ -143,14 +150,14 @@ return {
                 },
                 unusedLocalExclude = { "_*" },
               },
-              format = {
-                enable = false,
-                defaultConfig = {
-                  indent_style = "space",
-                  indent_size = "2",
-                  continuation_indent_size = "2",
-                },
-              },
+              -- format = {
+              --   enable = false,
+              --   defaultConfig = {
+              --     indent_style = "space",
+              --     indent_size = "2",
+              --     continuation_indent_size = "2",
+              --   },
+              -- },
             },
           },
         },

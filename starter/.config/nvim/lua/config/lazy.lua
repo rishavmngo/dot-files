@@ -22,6 +22,15 @@ require("lazy").setup({
 
     { "akinsho/toggleterm.nvim" },
     {
+      "akinsho/flutter-tools.nvim",
+      lazy = false,
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "stevearc/dressing.nvim", -- optional for vim.ui.select
+      },
+      config = true,
+    },
+    {
       "rcarriga/nvim-dap-ui",
       -- virtual text for the debugger
       {

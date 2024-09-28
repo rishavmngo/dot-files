@@ -236,9 +236,9 @@ end)
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
--- awful.button({}, 3, function()
--- 	mymainmenu:toggle()
--- end),
+	-- awful.button({}, 3, function()
+	-- 	mymainmenu:toggle()
+	-- end),
 	awful.button({}, 4, awful.tag.viewnext),
 	awful.button({}, 5, awful.tag.viewprev)
 ))
@@ -252,7 +252,6 @@ local function get_volume()
 	return tonumber(volume)
 end
 
-
 -- Create the volume widget
 
 -- Update the volume widget when the volume changes
@@ -263,7 +262,9 @@ local volume_notification = nil
 --
 local function show_volume_notification()
 	local volume = get_volume()
-	if volume == nil then volume = 0 end -- Fallback if unable to fetch volume
+	if volume == nil then
+		volume = 0
+	end -- Fallback if unable to fetch volume
 	if volume_notification then
 		naughty.destroy(volume_notification)
 		print("replaced")
@@ -273,7 +274,6 @@ local function show_volume_notification()
 	volume_notification = naughty.notify({
 		text = "Volume: " .. volume .. "%",
 		timeout = 0.4,
-
 
 		screen = awful.screen.focused(),
 		-- position = "top_middle",
@@ -325,10 +325,13 @@ globalkeys = gears.table.join(
 	-- 	awful.client.focus.byidx(-1)
 	-- end, { description = "focus previous by index", group = "client" }),
 
+	awful.key({ modkey }, "i", function()
+		awful.screen.focus_relative(1)
+	end, { description = "Focus on other screen", group = "awesome" }),
+
 	awful.key({ modkey }, "w", function()
 		awful.client.movetoscreen()
 	end, { description = "move window to side screen", group = "awesome" }),
-
 	-- Layout manipulation
 	awful.key({ modkey, "Control" }, "j", function()
 		awful.client.swap.byidx(1)
@@ -439,9 +442,6 @@ globalkeys = gears.table.join(
 	end),
 	-- Prompt
 	--
-	awful.key({ modkey }, "r", function()
-		awful.screen.focused().mypromptbox:run()
-	end, { description = "run prompt", group = "launcher" }),
 
 	awful.key({ modkey }, "x", function()
 		awful.prompt.run({
@@ -693,7 +693,8 @@ awful.spawn.with_shell("xinput set-prop 'ELAN1301:00 04F3:30C6 Touchpad' 'libinp
 awful.spawn.with_shell("xsetwacom --set 'Wacom One by Wacom S Pen stylus'  'PanScrollThreshold' 200")
 awful.spawn.with_shell("picom --config $HOME/.config/picom/picom.conf")
 awful.spawn.with_shell(
-	"eval $(gnome-keyring-daemon --start) && exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+	"eval $(gnome-keyring-daemon --start) && exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+)
 
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
