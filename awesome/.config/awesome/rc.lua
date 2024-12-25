@@ -304,6 +304,10 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
 	awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
 	awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
+
+	awful.key({ modkey, "Shift" }, "o", function()
+		awful.spawn.with_shell("$HOME/screen_scripts/audio_output.sh")
+	end, { description = "change audio outpout", group = "pulse audio" }),
 	awful.key({ altkey, "Shift" }, "1", function()
 		awful.spawn.with_shell("$HOME/screen_scripts/layout.sh laptop")
 	end, { description = "change layout", group = "xrandr" }),
