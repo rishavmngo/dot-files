@@ -47,3 +47,7 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.swapfile = false
 
 -- vim.keymap.set("n", "<leader>ff", ":FloatermNew lf " .. vim.fn.expand("%:p") .. "<CR>")
+vim.wo.wrap = true -- Enable line wrap
+vim.wo.linebreak = true -- Wrap at word boundaries
+vim.wo.breakindent = true -- Preserve indentation in wrapped lines
+vim.g.lf_open_new_file = "edit"

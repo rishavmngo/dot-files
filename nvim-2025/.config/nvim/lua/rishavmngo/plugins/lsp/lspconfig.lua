@@ -25,6 +25,9 @@ return {
 				-- See `:help vim.lsp.*` for documentation on any of the below functions
 				local opts = { buffer = ev.buf, silent = true }
 
+				vim.diagnostic.config({
+					virtual_text = false,
+				})
 				-- set keybinds
 				opts.desc = "Show LSP references"
 				keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
@@ -80,6 +83,7 @@ return {
 		end
 
 		mason_lspconfig.setup_handlers({
+
 			-- default handler for installed servers
 			function(server_name)
 				lspconfig[server_name].setup({
