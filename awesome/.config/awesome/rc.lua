@@ -329,7 +329,7 @@ globalkeys = gears.table.join(
 	-- 	awful.client.focus.byidx(-1)
 	-- end, { description = "focus previous by index", group = "client" }),
 
-	awful.key({ modkey }, "i", function()
+	awful.key({ "Control" }, "i", function()
 		awful.screen.focus_relative(1)
 	end, { description = "Focus on other screen", group = "awesome" }),
 
