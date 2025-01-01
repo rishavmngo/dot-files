@@ -12,6 +12,10 @@ return {
 
 		telescope.setup({
 			defaults = {
+				file_ignore_patterns = {
+					"^%.env$",
+					"^%.gitignore$",
+				},
 				path_display = { "smart" },
 				mappings = {
 					n = {

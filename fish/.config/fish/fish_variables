@@ -42,3 +42,4 @@ SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_user_paths:/home/rishavmngo/Android/Sdk/cmdline\x2dtools/latest/bin\x1e/home/rishavmngo/Android/Sdk/emulator\x1e/home/rishavmngo/Android/Sdk/platform\x2dtools\x1e/home/rishavmngo/Android/Sdk/tools/bin\x1e/home/rishavmngo/Android/Sdk/tools\x1e/home/rishavmngo/Android/Sdk\x1e/home/rishavmngo/go/bin\x1e/home/rishavmngo/Downloads/squashfs\x2droot\x1e/home/rishavmngo/\x2ecargo/bin\x1e/home/rishavmngo/\x2elocal/bin
+SETUVAR nvm_default_version:v22\x2e12\x2e0
