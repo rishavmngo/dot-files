@@ -1,18 +1,43 @@
+local jdtls = require("jdtls")
 local config = {
-	cmd = {
-		"/home/rishavmngo/.local/share/nvim/mason/bin/jdtls",
-		"-configuration",
-		"/home/rishavmngo/.cache/jdtls/config",
-		"-data",
-		"/home/rishavmngo/.cache/jdtls/workspace",
-	},
-	root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
 	settings = {
-		java = {},
+		java = {
+			configuration = {
+				runtimes = {
+					-- {
+					--   name = "JavaSE-11",
+					--   path = "/usr/lib/jvm/java-11-openjdk",
+					-- },
+					{
+						name = "JavaSE-17",
+						path = "/usr/lib/jvm/java-17-openjdk",
+						default = true,
+					},
+					-- {
+					--   name = "JavaSE-21",
+					--   path = "/usr/lib/jvm/java-21-openjdk",
+					-- },
+				},
+			},
+		},
 	},
 	init_options = {
 		bundles = {},
 	},
 }
+local root_markers = { ".git", "mvnw", "gradlew" }
+local root_dir = jdtls.setup.find_root(root_markers)
+local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
+local home = os.getenv("HOME")
+local workspace_dir = home .. "/.cache/jdtls/workspace/" .. project_name
+local lombok_path = vim.fn.stdpath("data") .. "/mason/share/jdtls/lombok.jar"
+config.cmd = {
+	"jdtls",
+	-- "-configuration", "/home/rishavmngo/.cache/jdtls",
+	-- "-javaagent:/home/rishavmngo/.local/share/nvim/mason/share/jdtls/lombok.jar",
+	"--jvm-arg=-javaagent:/home/rishavmngo/.local/share/nvim/mason/share/jdtls/lombok.jar",
+	"-data",
+	workspace_dir,
+}
 
-require("jdtls").start_or_attach(config)
+jdtls.start_or_attach(config)
