@@ -109,6 +109,12 @@ return {
 					end,
 				})
 			end,
+			["jdtls"] = function()
+				lspconfig["jdtls"].setup({
+					autostart = false,
+					capabilities = capabilities,
+				})
+			end,
 			["graphql"] = function()
 				-- configure graphql language server
 				lspconfig["graphql"].setup({

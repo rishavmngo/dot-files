@@ -32,6 +32,7 @@ return {
 				"emmet_ls",
 				"prismals",
 				"pyright",
+				-- "jdtls",
 			},
 		})
 		mason_tool_installer.setup({
