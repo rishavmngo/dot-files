@@ -9,9 +9,26 @@ return {
 		vim.g.loaded_netrwPlugin = 1
 
 		nvimtree.setup({
+			diagnostics = {
+				enable = true,
+				show_on_dirs = true,
+				icons = {
+					hint = "",
+					info = "",
+					warning = "",
+					error = "",
+				},
+			},
 			view = {
 				width = 35,
 				relativenumber = true,
+			},
+			log = {
+				enable = true,
+				truncate = true,
+				types = {
+					diagnostics = true,
+				},
 			},
 			-- change folder arrow icons
 			renderer = {

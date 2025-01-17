@@ -1,4 +1,13 @@
 local jdtls = require("jdtls")
+local dap = require("dap")
+
+local bundles = {
+	vim.fn.glob(
+		"/home/rishavmngo/.local/share/nvim/mason/share/java-debug-adapter/com.microsoft.java.debug.plugin-*.jar",
+		1
+	),
+}
+
 local config = {
 	settings = {
 		java = {
@@ -22,7 +31,7 @@ local config = {
 		},
 	},
 	init_options = {
-		bundles = {},
+		bundles = bundles,
 	},
 }
 local root_markers = { ".git", "mvnw", "gradlew" }
