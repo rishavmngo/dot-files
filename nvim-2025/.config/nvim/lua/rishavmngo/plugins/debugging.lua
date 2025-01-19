@@ -13,6 +13,54 @@ return {
 		dapVirtualText.setup()
 		dapui.setup()
 
+		dap.adapters.codelldb = {
+			type = "server",
+			port = "${port}",
+			executable = {
+				command = "codelldb",
+				args = { "--port", "${port}" },
+			},
+		}
+
+		dap.configurations.c = {
+			{
+				name = "Launch C Program",
+				type = "codelldb",
+				request = "launch",
+				program = function()
+					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+				end,
+				cwd = "${workspaceFolder}",
+				stopOnEntry = false,
+				args = {},
+				runInTerminal = false,
+			},
+			{
+				name = "Attach to Process",
+				type = "codelldb",
+				request = "attach",
+				pid = function()
+					local output = vim.fn.system("ps a | grep -v grep | grep -v 'ps a'")
+					local lines = vim.split(output, "\n")
+					local procs = {}
+					for _, line in ipairs(lines) do
+						local parts = vim.fn.split(vim.fn.trim(line))
+						if #parts > 0 then
+							table.insert(procs, { pid = parts[1], name = table.concat({ unpack(parts, 5) }, " ") })
+						end
+					end
+					local choices = {}
+					for _, proc in ipairs(procs) do
+						table.insert(choices, string.format("%s: %s", proc.pid, proc.name))
+					end
+					local choice = vim.fn.inputlist(choices)
+					if choice <= 0 or choice > #procs then
+						return nil
+					end
+					return tonumber(procs[choice].pid)
+				end,
+			},
+		}
 		dap.configurations.java = {
 			{
 				type = "java",
