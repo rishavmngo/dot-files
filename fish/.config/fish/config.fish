@@ -7,11 +7,19 @@ alias g='git'
 alias lf='lfrun'
 alias s='startx'
 alias po="podman"
-# alias docker='podmon'
+alias mci='mvn clean install quarkus:dev'
 alias his='history|peco --layout=bottom-up'
 export GOBIN=/home/rishavmngo/go/bin/
 export GO111MODULE="on"
 
+set -x ANDROID_HOME $HOME/Android/Sdk
+#set -x PATH $PATH $ANDROID_HOME/emulator
+set -x PATH $PATH $ANDROID_HOME/platform-tools
+set -x PATH $PATH /usr/bin/flutter/bin
+
+set -x PATH $PATH $HOME/.pub-cache/bin
+
+set -gx PATH /usr/bin/flutter/bin $PATH
 # export ANDROID_HOME=$HOME/Android/Sdk
 # export PATH=$PATH:$ANDROID_HOME/emulator
 # export PATH=$PATH:$ANDROID_HOME/tools

@@ -12,8 +12,8 @@ null_ls.setup({
         '--arrow-parens=always',
       },
     }),
-    fmt.eslint_d,
-    dgn.eslint_d,
+    -- fmt.eslint_d,
+    -- dgn.eslint_d,
     -- dgn.eslint_d.with({
     --   extra_args = {
     --     '--no-eslintrc'

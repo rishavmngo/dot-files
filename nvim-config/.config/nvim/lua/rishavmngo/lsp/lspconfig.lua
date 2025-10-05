@@ -21,6 +21,7 @@ end
 -- Whenever an LSP attaches to a buffer, we will run this function.
 --
 -- See `:help LspAttach` for more information about this autocmd event.
+-- print("reached here")
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('kickstart-lsp-attach-format', { clear = true }),
   -- This is where we attach the autoformatting for reasonable clients
@@ -28,12 +29,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local client_id = args.data.client_id
     local client = vim.lsp.get_client_by_id(client_id)
     local bufnr = args.buf
-
     -- if client.name == 'cssls' then
     --   client.server_capabilities.text
     -- end
     -- Only attach to clients that support document formatting
-    if not client.server_capabilities.documentFormattingProvider then
+    if not client.server_capabilities.documentFormattingProvider and not client.name == 'jdtls' then
       return
     end
 

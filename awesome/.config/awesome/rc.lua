@@ -69,6 +69,7 @@ altkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
 	awful.layout.suit.tile,
+	awful.layout.suit.floating,
 }
 -- }}}
 
@@ -235,13 +236,66 @@ end)
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
--- awful.button({}, 3, function()
--- 	mymainmenu:toggle()
--- end),
+	-- awful.button({}, 3, function()
+	-- 	mymainmenu:toggle()
+	-- end),
 	awful.button({}, 4, awful.tag.viewnext),
 	awful.button({}, 5, awful.tag.viewprev)
 ))
 -- }}}
+-- Function to update the volume widget
+
+local function get_volume()
+	local handle = io.popen("pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]*%' | head -1 | tr -d '%'")
+	local volume = handle:read("*a")
+	handle:close()
+	return tonumber(volume)
+end
+
+-- Create the volume widget
+
+-- Update the volume widget when the volume changes
+-- awesome.connect_signal("volume_changed", function()
+-- end)
+local volume_notification = nil
+-- Function to display volume notification
+--
+local function show_volume_notification()
+	local volume = get_volume()
+	if volume == nil then
+		volume = 0
+	end -- Fallback if unable to fetch volume
+	if volume_notification then
+		naughty.destroy(volume_notification)
+		print("replaced")
+		-- naughty.destroy(naughty., naughty.notificationClosedReason)
+	end
+
+	volume_notification = naughty.notify({
+		text = "Volume: " .. volume .. "%",
+		timeout = 0.4,
+
+		screen = awful.screen.focused(),
+		-- position = "top_middle",
+		font = "Sans 18",
+	})
+	print("here is logs")
+	print(volume_notification)
+end
+
+local function volume_decrease()
+	awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -1000")
+
+	show_volume_notification()
+end
+local function toggleMute()
+	awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")
+end
+
+local function volume_increase()
+	awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +1000")
+	show_volume_notification()
+end
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
@@ -250,6 +304,10 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
 	awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
 	awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
+
+	awful.key({ modkey, "Shift" }, "o", function()
+		awful.spawn.with_shell("$HOME/screen_scripts/audio_output.sh")
+	end, { description = "change audio outpout", group = "pulse audio" }),
 	awful.key({ altkey, "Shift" }, "1", function()
 		awful.spawn.with_shell("$HOME/screen_scripts/layout.sh laptop")
 	end, { description = "change layout", group = "xrandr" }),
@@ -260,18 +318,24 @@ globalkeys = gears.table.join(
 
 	awful.key({ altkey, "Shift" }, "3", function()
 		awful.spawn.with_shell("$HOME/screen_scripts/layout.sh both")
+		awful.spawn.with_shell("nitrogen --restore")
 	end, { description = "change layout", group = "xrandr" }),
 
-	awful.key({ modkey }, "j", function()
-		awful.client.focus.byidx(1)
-	end, { description = "focus next by index", group = "client" }),
-	awful.key({ modkey }, "k", function()
-		awful.client.focus.byidx(-1)
-	end, { description = "focus previous by index", group = "client" }),
+	-- awful.key({ modkey }, "j", function()
+	-- 	awful.client.focus.byidx(1)
+	-- end, { description = "focus next by index", group = "client" }),
+
+	-- awful.key({ modkey }, "k", function()
+	-- 	awful.client.focus.byidx(-1)
+	-- end, { description = "focus previous by index", group = "client" }),
+
+	awful.key({ "Control" }, "i", function()
+		awful.screen.focus_relative(1)
+	end, { description = "Focus on other screen", group = "awesome" }),
+
 	awful.key({ modkey }, "w", function()
 		awful.client.movetoscreen()
 	end, { description = "move window to side screen", group = "awesome" }),
-
 	-- Layout manipulation
 	awful.key({ modkey, "Control" }, "j", function()
 		awful.client.swap.byidx(1)
@@ -293,6 +357,12 @@ globalkeys = gears.table.join(
 		end
 	end, { description = "go back", group = "client" }),
 
+	awful.key({ modkey, "Shift" }, "Tab", function()
+		awful.client.focus.byidx(-1)
+		if client.focus then
+			client.focus:raise()
+		end
+	end, { description = "focus previous client", group = "client" }),
 	-- Standard program
 	awful.key({ modkey }, "Return", function()
 		awful.spawn("alacritty")
@@ -358,16 +428,24 @@ globalkeys = gears.table.join(
 		awful.util.spawn("brightnessctl set +5%")
 	end),
 	awful.key({}, "XF86AudioRaiseVolume", function()
-		awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +1000")
+		-- awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +1000")
+		volume_increase()
 	end),
 	awful.key({}, "XF86AudioLowerVolume", function()
-		awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -1000")
+		-- awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -1000")
+		volume_decrease()
+	end),
+	awful.key({ modkey }, "k", function()
+		-- awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +1000")
+		volume_increase()
+	end),
+	awful.key({ modkey }, "j", function()
+		volume_decrease()
+		-- awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -1000")
+		-- show_volume_notification()
 	end),
 	-- Prompt
 	--
-	awful.key({ modkey }, "r", function()
-		awful.screen.focused().mypromptbox:run()
-	end, { description = "run prompt", group = "launcher" }),
 
 	awful.key({ modkey }, "x", function()
 		awful.prompt.run({
@@ -407,8 +485,7 @@ clientkeys = gears.table.join(
 		c.minimized = true
 	end, { description = "minimize", group = "client" }),
 	awful.key({ modkey }, "m", function(c)
-		c.maximized = not c.maximized
-		c:raise()
+		toggleMute()
 	end, { description = "(un)maximize", group = "client" }),
 	awful.key({ modkey, "Control" }, "m", function(c)
 		c.maximized_vertical = not c.maximized_vertical
@@ -605,14 +682,23 @@ end)
 
 beautiful.useless_gap = 5
 
-awful.spawn.with_shell("nitrogen --restore")
+awful.screen.connect_for_each_screen(function(s)
+	-- Wallpaper
+	-- Set the wallpaper using Nitrogen
+	awful.spawn.with_shell("nitrogen --restore")
+
+	-- Other screen-related settings
+	-- ...
+end)
+-- awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("$HOME/.config/polybar/launc.sh")
 awful.spawn.with_shell("xinput set-prop 'ELAN1301:00 04F3:30C6 Touchpad' 'libinput Natural Scrolling Enabled' 1")
 awful.spawn.with_shell("xinput set-prop 'ELAN1301:00 04F3:30C6 Touchpad' 'libinput Tapping Enabled' 1")
 awful.spawn.with_shell("xsetwacom --set 'Wacom One by Wacom S Pen stylus'  'PanScrollThreshold' 200")
 awful.spawn.with_shell("picom --config $HOME/.config/picom/picom.conf")
 awful.spawn.with_shell(
-	"eval $(gnome-keyring-daemon --start) && exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+	"eval $(gnome-keyring-daemon --start) && exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+)
 
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)

@@ -81,13 +81,13 @@ local servers = {
 	clangd = {},
 	gopls = {},
 	pyright = {},
-	rust_analyzer = {},
 	lemminx = {},
 	tsserver = {
 		filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
 		cmd = { "typescript-language-server", "--stdio" },
 	},
 	html = { filetypes = { 'html', 'twig', 'hbs' } },
+
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
